@@ -5,13 +5,12 @@ import os
 app = Flask(__name__)
 CORS(app)
 
+
 @app.get("/api/v1/about")
 def about():
-  return jsonify({'slackusername': "Musawakiliml",
-            'backend': True,
-            'age': 26,
-            'bio': "Hey, there i am an aspiring Machine Learning Engineer. A Python Developer with a zeal to become a grey haired programmer."})
-
+    return jsonify({'slackUsername': "Musawakiliml", 'backend': True,
+                    'age': 26,
+                    'bio': "Hey, there i am an aspiring Machine Learning Engineer. A Python Developer with a zeal to become a grey haired programmer."})
 
 
 if __name__ == "__main__":
