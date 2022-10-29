@@ -4,7 +4,7 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-@app.get("/")
+@app.get("/api/v1/about")
 def about():
   return {'slackusername': "Musawakiliml",
             'backend': True,
