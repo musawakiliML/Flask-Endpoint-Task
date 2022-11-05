@@ -14,10 +14,7 @@ CORS(app)
 openai.api_key = settings.openai_key
 #openai.api_key = os.getenv("OPENAI_API_KEY")
 
-class operation_type(Enum):
-    addition = "+"
-    subtraction = "-"
-    multiplication = "*"
+operation_types = {'addition':'+', 'subtraction':'-', 'multiplication':'*'}
 
 #data = list(operation_type)
 
@@ -41,11 +38,18 @@ class HNGTask2(Resource):
         
         data_operation_type = data['operation_type'].lower()
         
-        if 
+        if data_operation_type in operation_types.keys():
+            #print(data_operation_type)
+            operation_type = data_operation_type
+            
+            result = eval(f'{data["x"]}{operation_types[operation_type]}{data["y"]}')
         
-        response = openai.Completion.create(model="text-davinci-002", prompt="Say this is a test", temperature=0, max_tokens=100)
+        else:
+            pass
         
-        return jsonify(data)
+        #response = openai.Completion.create(model="text-davinci-002", prompt="Say this is a test", temperature=0, max_tokens=100)
+        
+        return jsonify({"slackUsername": "Musawakiliml", "result": result, "operation_type": operation_type})
 
 api.add_resource(HNGTask1, '/api/v1/about')
 api.add_resource(HNGTask2, '/api/v1/')
