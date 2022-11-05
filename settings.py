@@ -1,7 +1,7 @@
 import os
 
 # Set environment variables
-os.environ['API_KEY'] = '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'
+os.environ['OPENAI_API_KEY'] = ""
 
 # Get environment variables
-openai_key = os.getenv('API_KEY')
+openai_key = os.getenv('OPENAI_API_KEY')

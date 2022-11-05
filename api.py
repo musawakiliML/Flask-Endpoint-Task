@@ -9,10 +9,10 @@ from enum import Enum
 app = Flask(__name__)
 api = Api(app)
 CORS(app)
-
 # Load your API key from an environment variable or secret management service
-openai.api_key = settings.openai_key
-#openai.api_key = os.getenv("OPENAI_API_KEY")
+#openai.api_key = settings.openai_key
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
 
 operation_types = {'addition':'+', 'subtraction':'-', 'multiplication':'*'}
 
